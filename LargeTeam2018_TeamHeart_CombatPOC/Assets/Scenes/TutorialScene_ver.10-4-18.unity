@@ -163,6 +163,21 @@ Prefab:
       propertyPath: ProgressBar
       value: 
       objectReference: {fileID: 7292884}
+    - target: {fileID: 114885207327680354, guid: 712e1afb326c3d24a92e602c62d59cc9,
+        type: 2}
+      propertyPath: Hero.Priority
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114885207327680354, guid: 712e1afb326c3d24a92e602c62d59cc9,
+        type: 2}
+      propertyPath: Hero.Name
+      value: Ally
+      objectReference: {fileID: 0}
+    - target: {fileID: 23992901661124098, guid: 712e1afb326c3d24a92e602c62d59cc9,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebdb3ed94f852ee49b5e1cbb07613add, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 712e1afb326c3d24a92e602c62d59cc9, type: 2}
   m_IsPrefabAsset: 0
@@ -1000,10 +1015,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BattleStates: 0
   PerformList: []
+  ExecutePerformList: []
   HerosInBattle: []
   EnemysInBattle: []
-  HeroInput: 0
+  CharactersInBattle: []
+  charactersCount: 0
   HerosToManage: []
+  HeroInput: 0
   EnemyButton: {fileID: 1011930313616026, guid: 55fc52138fa084048af64296a97296ba,
     type: 2}
   Spacer: {fileID: 1944033157}
@@ -1189,6 +1207,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114976578848891142, guid: 65420039a52a0a54d8d7f4bca81e7c4b,
+        type: 2}
+      propertyPath: Enemy.Priority
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114976578848891142, guid: 65420039a52a0a54d8d7f4bca81e7c4b,
+        type: 2}
+      propertyPath: Enemy.Name
+      value: Enemy 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65420039a52a0a54d8d7f4bca81e7c4b, type: 2}
   m_IsPrefabAsset: 0
@@ -1231,6 +1259,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114078467639764700, guid: 17a55f6b00cf0d246a46aa5f51906962,
+        type: 2}
+      propertyPath: Enemy.Priority
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078467639764700, guid: 17a55f6b00cf0d246a46aa5f51906962,
+        type: 2}
+      propertyPath: Enemy.Name
+      value: Enemy 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a55f6b00cf0d246a46aa5f51906962, type: 2}
   m_IsPrefabAsset: 0
@@ -1272,6 +1310,16 @@ Prefab:
     - target: {fileID: 4159547726026270, guid: efe5bcbc423967945a2be6c6c3c06700, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877601328666386, guid: efe5bcbc423967945a2be6c6c3c06700,
+        type: 2}
+      propertyPath: Enemy.Priority
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877601328666386, guid: efe5bcbc423967945a2be6c6c3c06700,
+        type: 2}
+      propertyPath: Enemy.Name
+      value: Enemy 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efe5bcbc423967945a2be6c6c3c06700, type: 2}
@@ -2013,6 +2061,16 @@ Prefab:
       propertyPath: ProgressBar
       value: 
       objectReference: {fileID: 1127368791}
+    - target: {fileID: 114062230323559874, guid: 3bee258563ba9b744beb5be76ecb4c49,
+        type: 2}
+      propertyPath: Hero.Name
+      value: Hero
+      objectReference: {fileID: 0}
+    - target: {fileID: 23379922473836856, guid: 3bee258563ba9b744beb5be76ecb4c49,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ebdb3ed94f852ee49b5e1cbb07613add, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bee258563ba9b744beb5be76ecb4c49, type: 2}
   m_IsPrefabAsset: 0
@@ -2054,6 +2112,16 @@ Prefab:
     - target: {fileID: 4022473858791174, guid: 5b33eb72a25b4fe49a6bb3e08470b116, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114189261203357120, guid: 5b33eb72a25b4fe49a6bb3e08470b116,
+        type: 2}
+      propertyPath: Enemy.Priority
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114189261203357120, guid: 5b33eb72a25b4fe49a6bb3e08470b116,
+        type: 2}
+      propertyPath: Enemy.Name
+      value: Enemy 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b33eb72a25b4fe49a6bb3e08470b116, type: 2}
@@ -2172,6 +2240,16 @@ Prefab:
     - target: {fileID: 4757410775032796, guid: ab97b2c71d22f904d8aa235bb8313c19, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114645809978945510, guid: ab97b2c71d22f904d8aa235bb8313c19,
+        type: 2}
+      propertyPath: Enemy.Priority
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114645809978945510, guid: ab97b2c71d22f904d8aa235bb8313c19,
+        type: 2}
+      propertyPath: Enemy.Name
+      value: Enemy 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab97b2c71d22f904d8aa235bb8313c19, type: 2}

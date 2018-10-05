@@ -7,6 +7,11 @@ public class BaseEnemy
 {
     public string Name;
 
+    public int Priority;    // Placeholder variable to determine order of character actions
+    public bool ActionSet = false;  // Checks if Player has decided on an action for every player character
+
+    public bool PerformedAction = false; // Variable to check if actor has already performed an action that turn
+
     public enum Type
     {
         GRASS,

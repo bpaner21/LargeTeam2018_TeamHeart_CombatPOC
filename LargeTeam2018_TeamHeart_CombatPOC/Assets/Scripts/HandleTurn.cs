@@ -9,6 +9,7 @@ public class HandleTurn
     public string Attacker; // name of attacker
     public GameObject AttackersGameObject;  // who attacks
     public GameObject AttackersTarget;      // who gets attacked
+    public int Priority;    // the turn priority of the attacker
 
     // which attack is performed
 }

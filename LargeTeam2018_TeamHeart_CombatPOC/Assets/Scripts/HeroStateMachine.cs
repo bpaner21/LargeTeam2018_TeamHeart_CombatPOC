@@ -21,7 +21,7 @@ public class HeroStateMachine : MonoBehaviour
     public TurnState CurrentState;
 
     private float cur_cooldown = 0f;
-    private float max_cooldown = 5f;
+    private float max_cooldown = 2f;
 
     public Image ProgressBar;
 
@@ -55,7 +55,8 @@ public class HeroStateMachine : MonoBehaviour
         {
             case (TurnState.PROCESSING):
                 {
-                    UpgradeProgressBar();
+                    //UpgradeProgressBar();
+                    CurrentState = TurnState.ADDTOLIST;
                     break;
                 }
             case (TurnState.ADDTOLIST):
@@ -109,6 +110,7 @@ public class HeroStateMachine : MonoBehaviour
         }
 
         actionStarted = true;
+        Debug.Log("Hero Action Started");
 
         // animate the enemy near the hero to attack
         Vector3 heroPosition = new Vector3(EnemyToAttack.transform.position.x, EnemyToAttack.transform.position.y, EnemyToAttack.transform.position.z - 1.0f);
@@ -124,7 +126,7 @@ public class HeroStateMachine : MonoBehaviour
         while (moveTowards(firstPosition)) { yield return null; }
 
         // remove this performer from the list in the BattleStateMachine (BSM)
-        bsm.PerformList.RemoveAt(0);
+        bsm.ExecutePerformList.RemoveAt(0);
 
         // reset bsm -> wait
         bsm.BattleStates = BattleStateMachine.PerformAction.WAIT;
@@ -133,7 +135,7 @@ public class HeroStateMachine : MonoBehaviour
         actionStarted = false;
 
         // reset this enemy state
-        cur_cooldown = 0f;
+        Debug.Log("Hero Action Ended");
         CurrentState = TurnState.PROCESSING;
     }
 
