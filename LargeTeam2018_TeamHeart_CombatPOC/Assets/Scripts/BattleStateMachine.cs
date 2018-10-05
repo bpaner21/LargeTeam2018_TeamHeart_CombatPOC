@@ -86,7 +86,7 @@ public class BattleStateMachine : MonoBehaviour
     // The panel containing possible character actions
     public GameObject AttackPanel;
 
-    // Contains Enemy info (Currently unused)
+    // Contains Enemy info
     public GameObject EnemySelectPanel;
 
 	// Use this for initialization
@@ -95,6 +95,7 @@ public class BattleStateMachine : MonoBehaviour
         BattleStates = PerformAction.WAIT;
         HerosInBattle.AddRange(GameObject.FindGameObjectsWithTag("Hero"));
         EnemysInBattle.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+        EnemysInBattle.Sort(SortEnemiesByName);
 
         HeroInput = HeroGUI.ACTIVATE;
 
@@ -295,4 +296,10 @@ public class BattleStateMachine : MonoBehaviour
 
         //return 0;
     }//*/
+
+    // Sort enemy characters by name (for GUI)
+    private static int SortEnemiesByName(GameObject e1, GameObject e2)
+    {
+        return e1.GetComponent<EnemyStateMachine>().Enemy.Name.CompareTo(e2.GetComponent<EnemyStateMachine>().Enemy.Name);
+    }
 }
