@@ -2321,6 +2321,11 @@ Prefab:
       propertyPath: m_Name
       value: Red
       objectReference: {fileID: 0}
+    - target: {fileID: 114645809978945510, guid: ab97b2c71d22f904d8aa235bb8313c19,
+        type: 2}
+      propertyPath: Enemy.ActionSet
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab97b2c71d22f904d8aa235bb8313c19, type: 2}
   m_IsPrefabAsset: 0
