@@ -25,18 +25,32 @@ public class HeroStateMachine : MonoBehaviour
 
     public Image ProgressBar;
 
-	// Use this for initialization
-	void Start ()
+    public GameObject Selector;
+
+    public GameObject EnemyToAttack;
+
+    private Vector3 startPosition;
+
+    private bool actionStarted = false;
+
+    private float animSpeed = 10f;
+
+    // Use this for initialization
+    void Start ()
     {
+        startPosition = transform.position;
+        cur_cooldown = Random.Range(0, 2.5f);
+
         bsm = GameObject.Find("BattleManager").GetComponent<BattleStateMachine>();
         CurrentState = TurnState.PROCESSING;
+        Selector.SetActive(false);
 
     }   // VOID START
 
     // Update is called once per frame
     void Update ()
     {
-        Debug.Log(CurrentState);
+        //Debug.Log(CurrentState);
         switch (CurrentState)
         {
             case (TurnState.PROCESSING):
@@ -61,6 +75,7 @@ public class HeroStateMachine : MonoBehaviour
                 }//*/
             case (TurnState.ACTION):
                 {
+                    StartCoroutine(timeForAction());
                     break;
                 }
             case (TurnState.DEAD):
@@ -85,4 +100,45 @@ public class HeroStateMachine : MonoBehaviour
         }
 
     }   // VOID UPGRADEPROGRESSBAR
+
+    private IEnumerator timeForAction()
+    {
+        if (actionStarted)
+        {
+            yield break;
+        }
+
+        actionStarted = true;
+
+        // animate the enemy near the hero to attack
+        Vector3 heroPosition = new Vector3(EnemyToAttack.transform.position.x, EnemyToAttack.transform.position.y, EnemyToAttack.transform.position.z - 1.0f);
+        while (moveTowards(heroPosition)) { yield return null; }
+
+        // wait
+        yield return new WaitForSeconds(0.5f);
+
+        // do damage
+
+        // back to start position
+        Vector3 firstPosition = startPosition;
+        while (moveTowards(firstPosition)) { yield return null; }
+
+        // remove this performer from the list in the BattleStateMachine (BSM)
+        bsm.PerformList.RemoveAt(0);
+
+        // reset bsm -> wait
+        bsm.BattleStates = BattleStateMachine.PerformAction.WAIT;
+
+        // end coroutine
+        actionStarted = false;
+
+        // reset this enemy state
+        cur_cooldown = 0f;
+        CurrentState = TurnState.PROCESSING;
+    }
+
+    private bool moveTowards(Vector3 target)
+    {
+        return target != (transform.position = Vector3.MoveTowards(transform.position, target, animSpeed * Time.deltaTime));
+    }
 }   // PUBLIC CLASS

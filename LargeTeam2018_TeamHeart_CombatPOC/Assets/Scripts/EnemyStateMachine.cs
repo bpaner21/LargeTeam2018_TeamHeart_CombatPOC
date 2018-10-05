@@ -19,12 +19,12 @@ public class EnemyStateMachine : MonoBehaviour
     public TurnState CurrentState;
 
     private float cur_cooldown = 0f;
-    private float max_cooldown = 5f;
+    private float max_cooldown = 15f;
     private Vector3 startPosition;
     //private Vector3 stopPosition;
     private bool actionStarted = false;
     public GameObject HeroToAttack;
-    private float animSpeed = 5f;
+    private float animSpeed = 10f;
 
     // Use this for initialization
     void Start ()
@@ -102,7 +102,7 @@ public class EnemyStateMachine : MonoBehaviour
         actionStarted = true;
 
         // animate the enemy near the hero to attack
-        Vector3 heroPosition = new Vector3(HeroToAttack.transform.position.x - 1.0f, HeroToAttack.transform.position.y, HeroToAttack.transform.position.z);
+        Vector3 heroPosition = new Vector3(HeroToAttack.transform.position.x, HeroToAttack.transform.position.y, HeroToAttack.transform.position.z + 1.0f);
         while (moveTowards(heroPosition)) { yield return null; }
 
         // wait
